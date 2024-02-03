@@ -1,0 +1,240 @@
+body {
+    margin: auto;
+    background-color:rgb(250, 250, 250);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+
+.container {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    align-items: center;
+    /*border: 1px solid;*/
+}
+
+.links {
+    /*border: 1px solid;*/
+    font-size: large;
+    font-weight: 600;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+.log:hover {
+    color: black;
+    cursor: pointer;
+}
+.logo {
+  border: none;
+}
+
+.sign:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.main {
+    margin-top: 32px;
+    /*display: flex;*/
+    margin-top: 3rem;
+    align-items: center;
+    justify-content: center;
+    /*border: 1px solid;*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+
+.search_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#searchBar {
+    width: 200px;
+    height: 32px;
+    /*border: 1px solid;*/
+    border: 0.5px solid;
+    box-shadow: 1px 4px 16px 2px rgb(233, 232, 232, 0.5);
+    transition: ease 100ms;
+    align-items: center;
+    padding: 2px 4px 2px 10px;
+}
+#searchBar:focus {
+    outline: none;
+    border: 3px solid steelblue;
+}
+
+#search_action {
+    font-weight: 600; 
+    margin-left: 1rem; 
+    cursor: pointer;
+    transition: ease 150ms;
+}
+#search_action:hover {
+    color: steelblue;
+}
+
+#currency {
+    height: 39px;
+    margin-left: 1rem;
+    padding: 4px 4px 4px 4px;
+    transition: ease 100ms;
+    border: 0.5px solid;
+    box-shadow: 1px 4px 16px 2px rgb(233, 232, 232, 0.5);
+}
+#currency:focus {
+    outline: none;
+    border: 3px solid steelblue;
+}
+
+.content {
+    width: 800px;
+    height: min-content;
+    align-items: center;
+    padding: 2rem;
+    margin-left: 10rem;
+    margin-top: 3rem;
+    border-radius: 4px;
+    box-shadow: 1px 4px 16px 4px rgb(233, 232, 232);
+    border-radius: 8px;
+    background: aliceblue;
+}
+
+@media screen and (max-width: 1280px) {
+	.content {
+		margin-left: 10rem;
+        width: 640px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.content {
+		margin-left: 10rem;
+        width: 640px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.content {
+		margin-left: 7.5rem;
+        width: 540px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.content {
+		margin-left: 5rem;
+        width: 400px;
+	}
+}
+
+.add_div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.add_select {
+    width: 150px;
+    height: 32px;
+}
+.add_select:focus {
+    outline: none;
+    border: 3px solid steelblue;
+}
+
+.add_input {
+    margin-left: 24px;
+    width: 150px;
+    height: 32px;
+    outline: none;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom-width: 1px;
+    transition: ease 100ms;
+}
+
+.add_delete {
+    color: red;
+    margin-left: 24px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#filterDiv {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.firstSelect {
+    width: 150px;
+    height: 48px;
+    margin-right: 1rem;
+    background: rgba(255,255,255,0.3);
+    transition: ease 200ms;
+}
+.firstSelect:focus {
+    outline: none;
+    border: 2px solid steelblue;
+}
+
+.inpOne {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid;
+    outline: none;
+    margin-right: 1rem;
+    font-size: medium;
+    background: transparent;
+}
+.inpOne:focus {
+    border-bottom: 2px solid steelblue;
+}
+
+.delIcon {
+    font-weight: 700;
+}
+
+#run {
+    background-color: transparent;
+    border: 1px solid;
+    margin-top: 32px;
+    outline: none;
+    width: 120px;
+    height: 32px;
+    font-weight: 600;
+}
+
+#rutt {
+    background-color: transparent;
+    border: 1px solid;
+    margin-top: 32px;
+    outline: none;
+    width: 120px;
+    height: 32px;
+    font-weight: 600;
+}
+#run:focus {
+    outline: none;
+    border: 2px solid steelblue;
+    color: steelblue;
+}

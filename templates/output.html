@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backtest</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/grid.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='script/main.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img id="logoB" src="{{ url_for('static',filename='backtest.png') }}" alt="logo01" width="84px" height="84px"/>
+            </div>
+            <div class="links">
+                <a href="#back" style="color: steelblue"><p class="log"> Change Indictors</p></a>
+                &nbsp;<p>/</p>&nbsp;
+                <a href="#signin" style="color: steelblue" id="signup"><p class="sign"> Logout </p></a>
+            </div>
+        </div>
+
+        <div class="main">
+            <h2 style="justify-content: center; color: black; text-align: center;">Backtesting Output</h2>
+          <div class="output">
+                <table style="height: 5cm; width: 15cm;">
+                    <tr >
+                        <th>Company Name</th>
+                        <th style="width:130px"> </th>
+                        <th style="width:130px" >Start Date</th>
+                        <th style="width:130px">End Date</th>
+                    </tr>
+                    <tr style="height:min-content;">
+                        <td>{{Company}} </td>
+                        <td></td>
+                        <td>{{From}}</td>
+                        <td>{{To}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Technical Indicators</b></td>
+                        <td ">{{Indicator}}</td>
+                        <td style="width:130px"></td>
+                        <td style="width:130px"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="output" style="align-items:center;">
+                <table style="height:10cm; width:15cm;">
+                    <tr style="text-align: center;">
+                        <th colspan="2">Default Investment</th>
+                        <th colspan="2" > Rs.{{intialfun}}</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td colspan="2">Amount After Backtest</td>
+                        <td colspan="2">{{endprofit}}</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td colspan="2">Total Buy Signals</td>
+                        <td colspan="2">{{Buysignal}}</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td colspan="2">Total sell Signals</td>
+                        <td colspan="2">{{Sellsignal}}</td>
+                    </tr>
+                    <tr style="text-align:center;"> 
+                        <td colspan="2">Maximum Profit</td>
+                        <td colspan="2">{{maxprofit}}</td>
+                    </tr>
+                    <tr style="text-align:center;"> 
+                        <td colspan="2">Maximum Loss</td>
+                        <td colspan="2">{{maxloss}}</td>
+                    </tr>
+                    <tr style="text-align:center;"> 
+                        <td colspan="2">Total Buy Trades</td>
+                        <td colspan="2">{{buyt}}</td>
+                    </tr>
+                    <tr style="text-align:center;"> 
+                        <td colspan="2">Total Sell Trades</td>
+                        <td colspan="2">{{sellt}}</td>
+                    </tr>
+                </table>
+        
+            </div>
+
+            <div class="output" style="align-items:center;" >  
+                
+                {% for table in tables %}
+                   <h2 style="text-align: center;color:black; align-items: center;"> {{ titles[loop.index] }}</h2>
+                    {{ table|safe }}
+                {% endfor %}
+            </div>  
+
+           <div class="outputImage" style="text-align: center; padding-top: 48px;">
+                <h3 style="text-align: center;color:black; align-items: center;">Signal Trend : {{patternn}} </h3>
+                <img src="https://finviz.com/chart.ashx?t={{ stockk }}&ty=c&ta=1&p=d&s=l" style="width: 60%; height: 80%;" alt="No Image">
+           </div> 
+        </div>
+    </div>
+</body>
+</html>

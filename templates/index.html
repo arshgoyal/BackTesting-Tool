@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backtest</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='script/main.js') }}"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img id="logoB" src="{{ url_for('static',filename='backtest.png') }}" alt="logo01" width="84px" height="84px"/>
+            </div>
+            <div class="links">
+                <a href="#login" style="color: steelblue"><p class="log"> Login </p></a>
+                &nbsp;<p>/</p>&nbsp;
+                <a href="#signin" style="color: steelblue" id="signup"><p class="sign">  Signup </p></a>
+            </div>
+        </div>
+
+        <div class="main" >
+
+            
+            <div style="display: flex; justify-content: center; margin-left: 190px;">
+                <p style="padding-right: 120px;">From</p>
+                <p>To</p>
+            </div>
+            <div class="search_menu">
+                <h4 style="padding-right: 1rem; font-weight: 600;"> Enter your choice: </h4>
+                <input type="text" list="searchOptions" id="searchBar" placeholder="Enter the coin name here" value=""/>
+                <datalist id="searchOptions">
+                    <option value="ABT">Abbott Labs</option>
+                    <option value="ACN">Accenture Inc.</option>
+                    <option value="ADBE">Adobe Systems</option>
+                    <option value="AES">AES Corp.</option>
+                    <option value="AKAM">Akamai Technologies</option>
+                    <option value="AGN">Allergan, PLC</option>
+                    <option value="AMZN">Amazon.com Inc.</option>
+                    <option value="AXP">American Express Co.</option>
+                    <option value="BRK.B">Berkshire Hathaway</option>
+                    <option value="BAX">Baxter International Inc.</option>
+                    <option value="BBY">Best Buy Co. Inc.</option>
+                    <option value="BLK">BlackRock</option>
+                    <option value="CCL">Carnival Corp.</option>
+                    <option value="CAT">Caterpillar Inc.</option>
+                    <option value="CBRE">CBRE Group</option>
+                    <option value="CF">CF Industries Holdings Inc</option>
+                    <option value="CVX">Chevron Corp.</option>
+                    <option value="CHD">Church & Dwight</option>
+                    <option value="CTAS">Cintas Corporationbb</option>
+                    <option value="CME">CME Group Inc.</option>
+                    <option value="DHR">Danaher Corp.</option>
+                    <option value="DAL">Delta Air Lines Inc.</option>
+                    <option value="DISH">Dish Network</option>
+                    <option value="DOW">Dow Inc.</option>
+                    <option value="EXC">Exelon </option>
+                    <option value="FB">Facebook</option>
+                    <option value="FDX">FedEx Corporation</option>
+                    <option value="FTNT">Fortinet</option>
+                    <option value="HES">Hess Corporation</option>
+                    <option value="HPQ">HP Inc.</option>
+                    <option value="INTC">Intel Corp.</option>
+                    <option value="JNJ">Johnson & Johnson</option>
+                    <option value="LVS">Las Vegas Sands</option>
+                    <option value="MSFT">Microsoft Corp.</option>
+                    <option value="NFLX">Netflix </option>
+                    <option value="QCOM">QUALCOMM Inc.</option>
+                    <option value="STX">Seagate Technology</option>
+                    
+                </datalist>
+                <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR -->
+                <!-- <select name="crypto" id="currency">
+                    <option value="Select from below"> Select from below </option>
+                    <option value="btc"> Bitcoin </option>
+                    <option value="eth"> Ethereum </option>
+                    <option value="ltc"> Litecoin </option>
+                </select> -->   
+                <!-- <select name="crypto" id="currency">
+                    <option value="Select from below"> Select from below </option>
+                    <option value="candle"> Candlestick </option>
+                    <option value="paf"> Point and Figure </option>
+                    <option value="funda"> Fundamentals </option>
+                </select> -->
+                
+                <input type="date" id="startDate" name="startDate" style="height: 34px; margin-left: 1rem;"/>
+                <input type="date" id="endDate" name="endDate" style="height: 34px; margin-left: 1rem;"/>
+                <h4 id="search_action"> Search </h4>
+            </div>
+
+            <div class="content" id="mainSection">
+                <h2 style="font-weight: 600;">Stock Screener</h2>
+                <p> Stock passes all of the below filters in cash segment:  </p>
+                <div id="dynaSec" style="display: flex; flex-direction: column;">
+                    <!--<div id="filterDiv"></div>-->
+                </div>
+                <!--<i class="fa fa-plus-circle"></i>
+                <div style="width: 24px; height: 24px; border: 1px solid; border-radius: 12px; background-color: white; text-align: center;"><p style="margin-top: -3px;">+</p></div>-->
+                <div id="addFilter" style="display: flex; margin-top: 12px;">
+                    <span id="add" class="material-icons" style="cursor: pointer; font-size: 28px;">add_box</span>
+                    <p style="margin-top: 4px; margin-left: 12px;"> Add a filter/group </p>
+                    
+                </div>
+            
+                <button type="submit" id="run"> Set Parameters </button>
+            
+                
+                
+                
+            </div>
+            <form action="/submit"  method="get" style="align-items: center; text-align: center;">
+                <input type="submit" value="Get Output" style="background-color: transparent;
+                border: 1px solid;
+                margin-top: 32px;
+                outline: none;
+                width: 120px;
+                height: 32px;
+                font-weight: 600;"/>
+            </form> 
+        
+        </div>
+    </div>
+</body>
+</html>
